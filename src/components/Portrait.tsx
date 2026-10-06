@@ -13,12 +13,12 @@ export default function Portrait() {
   useLayoutEffect(() => {
     if (reduceMotion || !root.current) return;
     const ctx = gsap.context(() => {
-      gsap.set('.portrait__frame', { '--k': 0.05, opacity: 0, filter: 'blur(18px) grayscale(1) brightness(0.5)' });
+      gsap.set('.portrait__frame', { opacity: 0, clipPath: 'circle(0% at 50% 42%)', filter: 'blur(14px) grayscale(1)' });
       gsap
         .timeline({ scrollTrigger: { trigger: '.portrait__frame', start: 'top 80%', once: true } })
-        .to('.portrait__frame', { opacity: 1, duration: 0.7 }, 0)
-        .to('.portrait__frame', { '--k': 1, duration: 2.6, ease: 'power2.inOut' }, 0)
-        .to('.portrait__frame', { filter: 'blur(0px) grayscale(0) brightness(1)', duration: 3, ease: 'sine.inOut' }, 0.1);
+        .to('.portrait__frame', { opacity: 1, duration: 0.6 }, 0)
+        .to('.portrait__frame', { clipPath: 'circle(80% at 50% 42%)', duration: 2.2, ease: 'power2.inOut' }, 0)
+        .to('.portrait__frame', { filter: 'blur(0px) grayscale(0)', duration: 2.4, ease: 'sine.inOut' }, 0.1);
       gsap.fromTo(
         '.portrait__img',
         { scale: 1.12 },
